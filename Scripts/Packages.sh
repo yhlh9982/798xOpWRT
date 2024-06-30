@@ -8,7 +8,20 @@ UPDATE_PACKAGE() {
 	local PKG_SPECIAL=$4
 	local REPO_NAME=$(echo $PKG_REPO | cut -d '/' -f 2)
 
+
 	rm -rf $(find ../feeds/luci/ ../feeds/packages/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune)
+
+# 移除要替换的包
+rm -rf feeds/packages/lang/golang
+rm -rf feeds/packages/net/v2ray-geodata
+rm -rf feeds/packages/net/mosdns
+rm -rf feeds/luci/applications/luci-app-mosdns
+rm -rf feeds/packages/net/smartdns
+rm -rf feeds/packages/net/msd_lite
+rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/luci/themes/luci-theme-netgear
+rm -rf feeds/luci/applications/luci-app-netdata
+rm -rf feeds/luci/applications/luci-app-serverchan
 
 	git clone --depth=1 --single-branch --branch $PKG_BRANCH "https://github.com/$PKG_REPO.git"
 
@@ -19,6 +32,12 @@ UPDATE_PACKAGE() {
 		mv -f $REPO_NAME $PKG_NAME
 	fi
 }
+
+UPDATE_PACKAGE "natedate" "Jason6111/luci-app-netdata" "master"
+UPDATE_PACKAGE "poweroff" "esirplayground/luci-app-poweroff" "master"
+UPDATE_PACKAGE "luci-app-msd_lite" "ximiTech/luci-app-msd_lite" "master"
+UPDATE_PACKAGE "msd_lite" "ximiTech/msd_lite" "master"
+UPDATE_PACKAGE "Alist" "sbwml/luci-app-alist" "master"
 
 #UPDATE_PACKAGE "包名" "项目地址" "项目分支" "pkg/name，可选，pkg为从大杂烩中单独提取包名插件；name为重命名为包名"
 UPDATE_PACKAGE "design" "gngpp/luci-theme-design" "js"
