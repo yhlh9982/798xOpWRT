@@ -46,8 +46,8 @@ UPDATE_PACKAGE "argon" "jerrykuku/luci-theme-argon" "master"
 UPDATE_PACKAGE "argon-config" "jerrykuku/luci-app-argon-config" "master"
 
 #smartdns
-UPDATE_PACKAGE "smartdns" "pymumu/luci-app-smartdns" "master"
-UPDATE_PACKAGE "openwrt-smartdns" "pymumu/openwrt-smartdns" "master"
+UPDATE_PACKAGE "luci-app-smartdns" "pymumu/luci-app-smartdns" "master"
+UPDATE_PACKAGE "smartdns" "pymumu/openwrt-smartdns" "master"
 #mosdns
 UPDATE_PACKAGE "v2ray-geodata" "sbwml/v2ray-geodata" "master"
 UPDATE_PACKAGE "lang_golang" "sbwml/packages_lang_golang" "21.x"
